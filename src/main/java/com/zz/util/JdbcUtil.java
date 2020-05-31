@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.sql.*;
 import java.util.Properties;
 
-public class JdbcUtil {
+public class JdbcUtil extends DbUtil {
 
     private static String url = null;
     private static String user = null;
@@ -22,10 +22,10 @@ public class JdbcUtil {
             props.load(in); //加载配置文件
 
             //读取配置文件信息
-            url = props.getProperty("url");
-            user = props.getProperty("user");
-            password = props.getProperty("password");
-            driverClass = props.getProperty("driverClass");
+            url = props.getProperty("db.url");
+            user = props.getProperty("db.user");
+            password = props.getProperty("db.password");
+            driverClass = props.getProperty("db.driverClass");
 
             //动态注册mysql驱动程序
             Class.forName(driverClass);
@@ -44,41 +44,6 @@ public class JdbcUtil {
         } catch(SQLException e) {
             e.printStackTrace();
             throw new RuntimeException();
-        }
-    }
-
-    // 关闭连接的方法，后打开的先关闭
-    public static void close(Connection conn, Statement stmt, ResultSet rs) {
-        //关闭ResultSet对象
-        if(rs != null) {
-            try {
-                //关闭rs，设置rs=null，因为java会优先回收值为null的变量
-                rs.close();
-                rs = null;
-            } catch(SQLException e) {
-                e.printStackTrace();
-                throw new RuntimeException();
-            }
-        }
-        //关闭Statement对象,因为PrepareStatement和CallableStatement都是Statement的子接口，所以这里只需要有关闭Statement对象的方法就可以了
-        if(stmt != null) {
-            try {
-                stmt.close();
-                stmt = null;
-            } catch(SQLException e) {
-                e.printStackTrace();
-                throw new RuntimeException();
-            }
-        }
-        //关闭Connection对象
-        if(conn != null) {
-            try {
-                conn.close();
-                conn = null;
-            } catch(SQLException e) {
-                e.printStackTrace();
-                throw new RuntimeException();
-            }
         }
     }
 }
