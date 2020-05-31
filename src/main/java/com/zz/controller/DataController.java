@@ -2,6 +2,8 @@ package com.zz.controller;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.zz.util.DbUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +15,8 @@ import java.sql.Statement;
 
 @RestController
 public class DataController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     DruidDataSource druidDataSource;
@@ -37,6 +41,8 @@ public class DataController {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        logger.info("Data fetching is successful.");
 
         return rString;
     }
