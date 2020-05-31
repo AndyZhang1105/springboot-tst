@@ -47,6 +47,12 @@
 			<version>1.2.28</version>
 		</dependency>
 
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>8.2-504.jdbc3</version>
+		</dependency>
+
     </dependencies>
 
 	<build>

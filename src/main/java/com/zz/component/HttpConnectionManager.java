@@ -15,6 +15,14 @@ import javax.annotation.PostConstruct;
 import javax.net.ssl.SSLContext;
 import java.security.NoSuchAlgorithmException;
 
+
+/*
+ * 连接池中连接都是在发起请求的时候建立，并且都是长连接
+ * 为什么要用Http连接池:
+ *   降低延迟, 3次握手4次挥手, 采用连接池则减少了这部分时间损耗，基本上3倍的时间延迟
+ *   支持更大的并发，单机的端口是有限的，端口消耗完之后不能建立新连接
+ */
+
 @Component
 public class HttpConnectionManager {
 
