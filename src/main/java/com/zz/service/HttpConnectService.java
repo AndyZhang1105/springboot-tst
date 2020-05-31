@@ -1,4 +1,4 @@
-package com.zz.springbootdemo;
+package com.zz.service;
 
 import com.alibaba.fastjson.JSON;
 import com.zz.component.HttpConnectionManager;
@@ -6,15 +6,13 @@ import com.zz.util.StringUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
 
-@RestController
-public class HaoMaiClientController {
+@Service
+public class HttpConnectService {
 
     HttpConnectionManager connManager = new HttpConnectionManager();
 
@@ -48,14 +46,7 @@ public class HaoMaiClientController {
         try {
             return JSON.parseObject(json, clazz);
         } catch (Exception e) {
-            System.out.println(json);
-            return null;
+            return (T) json;
         }
     }
-
-    @GetMapping("/getContentByHttpClient")
-    public String getContentByHttpClient(@RequestParam(value = "name", defaultValue = "World") String name) {
-        return get("https://www.baidu.com", String.class);
-    }
-
 }
