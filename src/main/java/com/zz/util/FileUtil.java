@@ -1,5 +1,7 @@
 package com.zz.util;
 
+import org.springframework.util.ResourceUtils;
+
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -78,6 +80,14 @@ public class FileUtil {
         }
 
         aFile.close();
+    }
+
+    public static String getResourcePath() throws FileNotFoundException {
+        return ResourceUtils.getURL("classpath:").getPath();
+    }
+
+    public static String getResourcePath(String filename) throws FileNotFoundException {
+        return getResourcePath() + filename;
     }
 
 }
