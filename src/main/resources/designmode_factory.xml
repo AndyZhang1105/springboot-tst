@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <className>com.zz.tst.designmode.factory.HorseFarm</className>
+    <className>com.zz.tst.designmode.factory.CattleFarm</className>
+</config>

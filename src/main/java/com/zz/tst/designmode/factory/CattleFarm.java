@@ -1,4 +1,4 @@
-package com.zz.tst.designmode;
+package com.zz.tst.designmode.factory;
 
 public class CattleFarm implements AnimalFarm {
     @Override

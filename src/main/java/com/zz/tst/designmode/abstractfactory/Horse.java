@@ -1,16 +1,15 @@
-package com.zz.tst.designmode;
+package com.zz.tst.designmode.abstractfactory;
 
 import com.zz.util.FileUtil;
 import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
 
 public class Horse implements Animal {
 
     JScrollPane sp;
-    JFrame jf = new JFrame("工厂方法模式测试");
+    JFrame jf = new JFrame("抽象工厂模式测试");
 
     @SneakyThrows
     public Horse() {

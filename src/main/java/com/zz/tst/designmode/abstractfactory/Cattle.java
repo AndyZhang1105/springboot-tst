@@ -1,4 +1,7 @@
-package com.zz.tst.designmode;
+package com.zz.tst.designmode.abstractfactory;
+
+import com.zz.util.FileUtil;
+import lombok.SneakyThrows;
 
 import javax.swing.*;
 import java.awt.*;
@@ -6,8 +9,9 @@ import java.awt.*;
 public class Cattle implements Animal {
 
     JScrollPane sp;
-    JFrame jf=new JFrame("工厂方法模式测试");
+    JFrame jf = new JFrame("抽象工厂模式测试");
 
+    @SneakyThrows
     public Cattle() {
         Container contentPane=jf.getContentPane();
         JPanel p1=new JPanel();
@@ -15,7 +19,7 @@ public class Cattle implements Animal {
         p1.setBorder(BorderFactory.createTitledBorder("动物：牛"));
         sp=new JScrollPane(p1);
         contentPane.add(sp,BorderLayout.CENTER);
-        JLabel l1=new JLabel(new ImageIcon("src/A_Cattle.jpg"));
+        JLabel l1 = new JLabel(new ImageIcon(FileUtil.getResourcePath("static/A_Cattle.jpg")));
         p1.add(l1);
         jf.pack();
         jf.setVisible(false);
