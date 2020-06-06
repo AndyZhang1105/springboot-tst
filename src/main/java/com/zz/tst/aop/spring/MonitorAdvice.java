@@ -1,6 +1,6 @@
-package com.zz.aop.spring;
+package com.zz.tst.aop.spring;
 
-import com.zz.aop.MonitorSession;
+import com.zz.tst.aop.MonitorSession;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class MonitorAdvice {
 
-    @Pointcut("execution (* com.zz.aop.Speakable.*(..))")
+    @Pointcut("execution (* com.zz.tst.aop.Speakable.*(..))")
     public void pointcut() {
     }
 

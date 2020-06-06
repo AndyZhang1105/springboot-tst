@@ -1,4 +1,4 @@
-package com.zz.aop;
+package com.zz.tst.aop;
 
 class MethodMonitor {
     private long start;

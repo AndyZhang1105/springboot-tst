@@ -1,4 +1,4 @@
-package com.zz.aop;
+package com.zz.tst.aop;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

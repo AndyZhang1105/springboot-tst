@@ -1,7 +1,7 @@
-package com.zz.aop;
+package com.zz.tst.aop;
 
-import com.zz.aop.cglib.CGLibProxy;
-import com.zz.aop.jdk.DynamicProxy;
+import com.zz.tst.aop.cglib.CGLibProxy;
+import com.zz.tst.aop.jdk.DynamicProxy;
 
 public class PersonProxyFactory {
 
