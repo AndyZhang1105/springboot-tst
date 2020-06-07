@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.classtst;
 
 import java.lang.reflect.Field;
 
@@ -33,7 +33,7 @@ public class ClassExtend {
         try {
             // 使用forName方法与newInstance方法生成实例
             Car tiguan = new Tiguan();
-            Car tiguanCar = (Car) Class.forName("com.zz.tst.Tiguan").newInstance();
+            Car tiguanCar = (Car) Class.forName("com.zz.tst.classtst.Tiguan").newInstance();
 
             // 输出"tiguan"
             System.out.println(tiguanCar.getName());

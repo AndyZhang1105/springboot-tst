@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.hash;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

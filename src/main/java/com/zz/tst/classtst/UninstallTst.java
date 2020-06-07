@@ -1,5 +1,6 @@
-package com.zz.tst;
+package com.zz.tst.classtst;
 
+import com.zz.tst.classtst.MyClassLoader;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 

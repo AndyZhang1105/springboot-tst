@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.classtst;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

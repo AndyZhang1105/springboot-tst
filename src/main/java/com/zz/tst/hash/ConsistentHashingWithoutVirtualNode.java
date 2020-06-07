@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.hash;
 
 import java.util.SortedMap;
 import java.util.TreeMap;

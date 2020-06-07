@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.io;
 
 import com.zz.util.FileUtil;
 

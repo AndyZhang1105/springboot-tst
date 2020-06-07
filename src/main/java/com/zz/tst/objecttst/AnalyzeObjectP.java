@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.objecttst;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

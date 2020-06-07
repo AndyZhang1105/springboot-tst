@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.objecttst;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.thread;
 
 import java.util.concurrent.TimeUnit;
 

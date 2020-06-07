@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.hash;
 
 import org.apache.commons.lang3.StringUtils;
 

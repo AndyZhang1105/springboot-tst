@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.objecttst;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.SoftReference;

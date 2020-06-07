@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.classtst;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

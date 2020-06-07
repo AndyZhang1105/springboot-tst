@@ -1,4 +1,4 @@
-package com.zz.tst;
+package com.zz.tst.list;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

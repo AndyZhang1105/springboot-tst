@@ -1,5 +1,7 @@
-package com.zz.tst;
+package com.zz.tst.classtst;
 
+import com.zz.tst.objecttst.AnalyzeObjectP;
+import com.zz.tst.objecttst.AnalyzeObjectS;
 import com.zz.util.ClassUtil;
 import com.zz.util.ObjectAnalyzer;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -61,7 +63,7 @@ public class ClassTst {
         Class cls = null;
 
         try {
-            cls = Class.forName("com.zz.tst.ClassTst");
+            cls = Class.forName("com.zz.tst.classtst.ClassTst");
             System.out.println("cls: " + cls);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -161,11 +163,11 @@ public class ClassTst {
         }
 
         /*以下调用无参的、私有构造函数*/
-        Constructor c0 = Class.forName("com.zz.tst.ClassTst").getDeclaredConstructor();
+        Constructor c0 = Class.forName("com.zz.tst.classtst.ClassTst").getDeclaredConstructor();
         c0.setAccessible(true); //启用和禁用访问安全检查的开关，值为 true，则表示反射的对象在使用时应该取消 java 语言的访问检查；反之不取消
         ClassTst tst1 = (ClassTst) c0.newInstance();
         /*以下调用带参的、私有构造函数*/
-        Constructor c1 = Class.forName("com.zz.tst.ClassTst").getDeclaredConstructor(new Class[]{int.class, int.class});
+        Constructor c1 = Class.forName("com.zz.tst.classtst.ClassTst").getDeclaredConstructor(new Class[]{int.class, int.class});
         c1.setAccessible(true);
         ClassTst tst2 = (ClassTst) c1.newInstance(new Object[]{5,6});
 
