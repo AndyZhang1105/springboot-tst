@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit;
  * @author Zal Zhang
  * 只有在调用线程拥有某个对象的独占锁时，才能够调用该对象的wait(),notify()和notifyAll()方法
  *
+ * synchronized方法或声明执行期间，如程序遇到任何异常或return，线程都会释放锁。
+ *
  */
 
 class Block {
