@@ -12,6 +12,7 @@ public class HashTst {
         sortByHashMap();
         testHashTable();
         testConcurentHashMap();
+        testLinkedHashMap();
 
         (new HashTst()).testLockWithHashMap();
 
@@ -105,6 +106,14 @@ public class HashTst {
 
         System.out.println("concurrentHashMap.size: " + concurrentHashMap.size());
         System.out.println("concurrentHashMap: " + concurrentHashMap);
+    }
+
+    public static void testLinkedHashMap() {
+        LinkedHashMap linkedHashMap = new LinkedHashMap();
+        linkedHashMap.put("first", 1);
+        linkedHashMap.put("second", 2);
+        linkedHashMap.put("third", 3);
+        System.out.println("linkedHashMap: " + linkedHashMap);
     }
 
     public void testLockWithHashMap() {

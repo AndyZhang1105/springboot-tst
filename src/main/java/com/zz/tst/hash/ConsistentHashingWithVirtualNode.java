@@ -25,7 +25,7 @@ public class ConsistentHashingWithVirtualNode {
     //虚拟节点的数目，这里写死，为了演示需要，一个真实结点对应5个虚拟节点
     private static final int VIRTUAL_NODES = 5;
 
-    static{
+    static {
         //先把原始的服务器添加到真实结点列表中
         for(int i=0; i<servers.length; i++)
             realNodes.add(servers[i]);
@@ -43,7 +43,7 @@ public class ConsistentHashingWithVirtualNode {
     }
 
     //使用FNV1_32_HASH算法计算服务器的Hash值,这里不使用重写hashCode的方法，最终效果没区别
-    private static int getHash(String str){
+    private static int getHash(String str) {
         final int p = 16777619;
         int hash = (int)2166136261L;
         for (int i = 0; i < str.length(); i++)
@@ -61,7 +61,7 @@ public class ConsistentHashingWithVirtualNode {
     }
 
     //得到应当路由到的结点
-    private static String getServer(String key){
+    private static String getServer(String key) {
         //得到该key的hash值
         int hash = getHash(key);
         // 得到大于该Hash值的所有Map
@@ -85,7 +85,7 @@ public class ConsistentHashingWithVirtualNode {
         return null;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String[] keys = {"太阳", "月亮", "星星"};
         for(int i=0; i<keys.length; i++) {
             System.out.println("[" + keys[i] + "]的hash值为" + getHash(keys[i]) + ", 被路由到结点[" + getServer(keys[i]) + "]");
