@@ -1,13 +1,24 @@
 package com.zz.tst.io;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 
 public class SystemOutTst {
 
     public static void main(String[] args) {
-        try{
+
+        try {
+            System.out.println("Please input something:");
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+            String filename = bufferedReader.readLine();
+            InputStream inputStream = new FileInputStream(filename);
+            System.out.println(inputStream);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
             System.setOut(new PrintStream(new FileOutputStream("log.txt")));
             System.out.println("Now the output is redirected!");
         } catch (FileNotFoundException e) {
