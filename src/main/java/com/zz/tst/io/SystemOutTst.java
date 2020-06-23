@@ -13,9 +13,9 @@ public class SystemOutTst {
             InputStream inputStream = new FileInputStream(filename);
             System.out.println(inputStream);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
 
         try {
