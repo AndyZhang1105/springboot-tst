@@ -1,4 +1,4 @@
-package com.zz.controller;
+package com.zz.mvctst.controller;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

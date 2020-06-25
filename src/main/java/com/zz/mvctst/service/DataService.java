@@ -1,4 +1,4 @@
-package com.zz.service;
+package com.zz.mvctst.service;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.zz.util.DbUtil;

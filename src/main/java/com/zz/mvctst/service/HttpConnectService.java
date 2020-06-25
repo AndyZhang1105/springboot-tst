@@ -1,7 +1,7 @@
-package com.zz.service;
+package com.zz.mvctst.service;
 
 import com.alibaba.fastjson.JSON;
-import com.zz.component.HttpConnectionManager;
+import com.zz.mvctst.component.HttpConnectionManager;
 import com.zz.util.StringUtil;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;

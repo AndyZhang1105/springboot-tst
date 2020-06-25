@@ -1,4 +1,4 @@
-package com.zz.controller;
+package com.zz.mvctst.controller;
 
 import com.zz.util.JdbcUtil;
 import org.springframework.web.bind.annotation.GetMapping;

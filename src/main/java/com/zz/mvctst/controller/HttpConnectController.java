@@ -1,6 +1,6 @@
-package com.zz.controller;
+package com.zz.mvctst.controller;
 
-import com.zz.service.HttpConnectService;
+import com.zz.mvctst.service.HttpConnectService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

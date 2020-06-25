@@ -1,4 +1,4 @@
-package com.zz.component;
+package com.zz.mvctst.component;
 
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;

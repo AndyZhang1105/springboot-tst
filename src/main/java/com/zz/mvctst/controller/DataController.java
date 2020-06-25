@@ -1,6 +1,6 @@
-package com.zz.controller;
+package com.zz.mvctst.controller;
 
-import com.zz.service.DataService;
+import com.zz.mvctst.service.DataService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
