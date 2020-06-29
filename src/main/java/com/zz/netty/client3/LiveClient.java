@@ -1,4 +1,6 @@
-package com.zz.tst.io;
+package com.zz.netty.client3;
+
+import com.zz.netty.server3.LiveMessage;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -7,7 +9,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
-public class SocketChannelClient {
+public class LiveClient {
 
     public static void main(String[] args) throws Exception {
 
@@ -50,7 +52,7 @@ public class SocketChannelClient {
         channel.configureBlocking(false);
         channel.register(key.selector(), SelectionKey.OP_READ);
 
-        sendInfo(channel, "客户端测试!");
+        sendInfo(channel, new LiveMessage(LiveMessage.TYPE_MESSAGE, 10, "hi, here is content."));
     }
 
     public static void handleRead(SelectionKey key) throws Exception {
@@ -69,16 +71,16 @@ public class SocketChannelClient {
 
         Thread.sleep(5000);
 
-        sendInfo(channel, "Hi, let's start a very funny game.");
+        sendInfo(channel, new LiveMessage(LiveMessage.TYPE_MESSAGE, 10, "Hi, let's start a very funny game."));
     }
 
     public static void handleWrite(SelectionKey key) throws Exception {
         System.out.println("客户端写数据!");
     }
 
-    public static void sendInfo(SocketChannel clientChannel, String msg) throws Exception {
+    public static void sendInfo(SocketChannel clientChannel, LiveMessage msg) throws Exception {
         // 向服务端发送连接成功信息
-        clientChannel.write(ByteBuffer.wrap(msg.getBytes()));
+        clientChannel.write(ByteBuffer.wrap(msg.toString().getBytes()));
     }
 
 }

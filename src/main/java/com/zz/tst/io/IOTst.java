@@ -1,20 +1,12 @@
 package com.zz.tst.io;
 
 import com.zz.util.FileUtil;
-import com.zz.util.StringUtil;
 import lombok.SneakyThrows;
 
 import java.io.IOException;
-import java.io.OutputStream;
-import java.io.PrintWriter;
 import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
-import java.nio.charset.Charset;
-import java.util.Iterator;
-import java.util.Set;
 
 public class IOTst {
 

@@ -1,4 +1,4 @@
-package com.zz.netty.httpserver;
+package com.zz.netty.server2;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -18,11 +18,11 @@ public class HttpHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
                 HttpVersion.HTTP_1_1,
                 HttpResponseStatus.OK,
                 Unpooled.wrappedBuffer("test".getBytes())
-        ); // 2
+        );
 
         HttpHeaders heads = response.headers();
         heads.add(HttpHeaderNames.CONTENT_TYPE, contentType + "; charset=UTF-8");
-        heads.add(HttpHeaderNames.CONTENT_LENGTH, response.content().readableBytes()); // 3
+        heads.add(HttpHeaderNames.CONTENT_LENGTH, response.content().readableBytes());
         heads.add(HttpHeaderNames.CONNECTION, HttpHeaderValues.KEEP_ALIVE);
 
         ctx.write(response);
@@ -32,7 +32,9 @@ public class HttpHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channelReadComplete");
         super.channelReadComplete(ctx);
-        ctx.flush(); // 4
+        ctx.flush();
+
+        ctx.write("hi, this is from server.");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.zz.netty.websocket;
+package com.zz.netty.server1;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -12,6 +12,7 @@ import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.handler.stream.ChunkedWriteHandler;
+import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -50,5 +51,12 @@ public class NettyServer {
             group.shutdownGracefully().sync();
             bossGroup.shutdownGracefully().sync();
         }
+    }
+
+    @SneakyThrows
+    public static void main(String[] args) {
+        NettyServer nettyServer = new NettyServer();
+        nettyServer.port = 9001;
+        nettyServer.start();
     }
 }

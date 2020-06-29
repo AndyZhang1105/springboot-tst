@@ -1,4 +1,4 @@
-package com.zz.netty.httpserver;
+package com.zz.netty.server2;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -24,7 +24,7 @@ public class HttpServer {
 //            return;
 //        }
 //        int port = Integer.parseInt(args[0]);
-        new HttpServer(9001).start();
+        new HttpServer(9002).start();
     }
 
     public void start() throws Exception {
