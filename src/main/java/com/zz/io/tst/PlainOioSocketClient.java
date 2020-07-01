@@ -1,4 +1,4 @@
-package com.zz.tst.io;
+package com.zz.io.tst;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -6,9 +6,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class SocketClient {
+public class PlainOioSocketClient {
 
-    private static void main(String[] args) {
+    public static void main(String[] args) {
         try {
             Socket socket = new Socket("127.0.0.1", 8090);
 

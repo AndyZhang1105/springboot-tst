@@ -3,62 +3,42 @@ package com.zz.netty.server3;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ReplayingDecoder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-public class LiveDecoder extends ReplayingDecoder<LiveDecoder.LiveState> {
+public class LiveDecoder extends ReplayingDecoder<LiveDecoder.LiveState> { //1
 
-    Logger logger = LoggerFactory.getLogger(LiveDecoder.class);
-
-    public enum LiveState {
-        TYPE,
+    public enum LiveState { //2
         LENGTH,
         CONTENT
     }
 
-    private LiveMessage message;
+    private LiveMessage message = new LiveMessage();
 
     public LiveDecoder() {
-        super(LiveState.TYPE);
+        super(LiveState.LENGTH); // 3
     }
 
     @Override
     protected void decode(ChannelHandlerContext channelHandlerContext, ByteBuf byteBuf, List<Object> list) throws Exception {
-        LiveState state = state();
-        logger.debug("state:" + state + " message:" + message);
-        switch (state) {
-            case TYPE:
-                message = new LiveMessage();
-                byte type = byteBuf.readByte();
-                logger.debug("type:" + type);
-                message.setType(type);
-                checkpoint(LiveState.LENGTH);
-                break;
+        switch (state()) { // 4
             case LENGTH:
                 int length = byteBuf.readInt();
-                message.setLength(length);
                 if (length > 0) {
-                    checkpoint(LiveState.CONTENT);
+                    checkpoint(LiveState.CONTENT); // 5
                 } else {
-                    list.add(message);
-                    checkpoint(LiveState.TYPE);
+                    list.add(message); // 6
                 }
                 break;
             case CONTENT:
-                int tLength = message.getContent() == null ? 10 : message.getContent().length();
-                byte[] bytes = new byte[tLength];
+                byte[] bytes = new byte[message.getLength()];
                 byteBuf.readBytes(bytes);
                 String content = new String(bytes);
                 message.setContent(content);
                 list.add(message);
-                checkpoint(LiveState.TYPE);
                 break;
             default:
-                throw new IllegalStateException("invalid state:" + state);
+                throw new IllegalStateException("invalid state:" + state());
         }
-        logger.debug("end state:" + state + " list:" + list);
     }
-
 }

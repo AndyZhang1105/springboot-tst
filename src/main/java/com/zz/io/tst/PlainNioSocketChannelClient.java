@@ -1,4 +1,4 @@
-package com.zz.tst.io;
+package com.zz.io.tst;
 
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
@@ -7,7 +7,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 
-public class SocketChannelClient {
+public class PlainNioSocketChannelClient {
 
     public static void main(String[] args) throws Exception {
 
@@ -16,7 +16,7 @@ public class SocketChannelClient {
 
         SocketChannel socketChannel = SocketChannel.open();
         socketChannel.configureBlocking(false);
-        socketChannel.connect(new InetSocketAddress("127.0.0.1", 9003));
+        socketChannel.connect(new InetSocketAddress("127.0.0.1", 8091));
         socketChannel.register(selector, SelectionKey.OP_CONNECT);
 
         while (true) {
