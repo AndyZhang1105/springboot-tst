@@ -27,12 +27,15 @@ public class PlainOioServer {
             final Socket socket = serverSocket.accept();    //2 监听
 
             InputStream inputStream = socket.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "utf-8"));
+            OutputStream outputStream = socket.getOutputStream();
+            BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "utf-8"));
 
             String info;
             while ((info = bufferedReader.readLine()) != null) {
                 System.out.println("我是server端，client请求为：" + info);
             }
+
 
             Thread.currentThread().sleep(50000);
 
