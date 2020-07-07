@@ -26,4 +26,10 @@ public class AopTstController {
         cglibProxy.sayHi();
         cglibProxy.sayBye();
     }
+
+    public static void main(String[] args) {
+        AopTstController aopTstController = new AopTstController();
+        aopTstController.aopPerson = new AopPerson();
+        aopTstController.aopTst();
+    }
 }

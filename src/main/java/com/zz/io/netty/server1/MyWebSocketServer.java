@@ -18,8 +18,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
-@Component
-public class WebSocketServer {
+public class MyWebSocketServer {
 
     @Value("${server.port}")
     private int port;
@@ -42,7 +41,7 @@ public class WebSocketServer {
                             ch.pipeline().addLast(new ChunkedWriteHandler());
                             ch.pipeline().addLast(new HttpObjectAggregator(8192));
                             ch.pipeline().addLast(new WebSocketServerProtocolHandler("/ws", "WebSocket", true, 65536 * 10));
-                            ch.pipeline().addLast(new WebSocketHandler());
+                            ch.pipeline().addLast(new MyWebSocketHandler());
                         }
                     });
             ChannelFuture cf = sb.bind(port).sync();
@@ -55,7 +54,7 @@ public class WebSocketServer {
 
     @SneakyThrows
     public static void main(String[] args) {
-        WebSocketServer webSocketServer = new WebSocketServer();
+        MyWebSocketServer webSocketServer = new MyWebSocketServer();
         webSocketServer.port = 9001;
         webSocketServer.start();
     }

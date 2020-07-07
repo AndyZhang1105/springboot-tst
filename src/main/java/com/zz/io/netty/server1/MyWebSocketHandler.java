@@ -7,7 +7,7 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.handler.codec.http.websocketx.TextWebSocketFrame;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
-public class WebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
+public class MyWebSocketHandler extends SimpleChannelInboundHandler<TextWebSocketFrame> {
 
     public static ChannelGroup channelGroup;
 

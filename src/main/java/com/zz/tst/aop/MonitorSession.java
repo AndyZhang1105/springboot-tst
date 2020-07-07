@@ -1,14 +1,17 @@
 package com.zz.tst.aop;
 
 public class MonitorSession {
+
     private static ThreadLocal<MethodMonitor> monitorThreadLocal = new ThreadLocal<>();
+
     public static void begin(String method) {
-        MethodMonitor logger = new MethodMonitor(method);
-        monitorThreadLocal.set(logger);
+        MethodMonitor methodMonitor = new MethodMonitor(method);
+        monitorThreadLocal.set(methodMonitor);
     }
+
     public static void end() {
-        MethodMonitor logger = monitorThreadLocal.get();
-        monitorThreadLocal.set(logger);
-        logger.log();
+        MethodMonitor methodMonitor = monitorThreadLocal.get();
+        monitorThreadLocal.set(methodMonitor);
+        methodMonitor.log();
     }
 }

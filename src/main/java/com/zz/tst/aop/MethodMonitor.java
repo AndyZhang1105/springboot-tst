@@ -1,13 +1,16 @@
 package com.zz.tst.aop;
 
-class MethodMonitor {
+public class MethodMonitor {
+
     private long start;
     private String method;
+
     public MethodMonitor(String method) {
         this.method = method;
         System.out.println("begin monitor...");
         this.start = System.currentTimeMillis();
     }
+
     public void log() {
         long elapsedTime = System.currentTimeMillis() - start;
         System.out.println("end monitor.");

@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 public class DynamicProxy implements InvocationHandler {
+
     private Object target;
 
     public DynamicProxy(Object object) {

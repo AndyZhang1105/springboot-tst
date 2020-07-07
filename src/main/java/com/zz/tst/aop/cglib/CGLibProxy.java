@@ -20,7 +20,6 @@ public class CGLibProxy implements MethodInterceptor {
 
     private Enhancer enhancer = new Enhancer();
 
-
     public <T> T getProxy(Class<T> clazz) {
         enhancer.setSuperclass(clazz);
         enhancer.setCallback(this);
