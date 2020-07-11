@@ -5,8 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class AopService implements Service {
 
-    public void query() {
+    public String query() {
         System.out.println("spring ---- query --- ");
+        return "Here is result.";
     }
 
 }

@@ -1,5 +1,6 @@
 package com.zz.tst.aoptst2.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
@@ -26,16 +27,26 @@ public class AopConfig {
         System.out.println("before ---------------");
     }
 
-    @After("pointcut()")
-    public void after() {
-        System.out.println("after ---------------");
-    }
-
     @Around("pointcut()")
     public void around(ProceedingJoinPoint pjp) throws Throwable {
         System.out.println("around start ---------------");
         pjp.proceed();
         System.out.println("around end ---------------");
+    }
+
+    @After("pointcut()")
+    public void after() {
+        System.out.println("after ---------------");
+    }
+
+    @AfterReturning(value = "pointcut())", returning = "result")
+    public void afterReturning(JoinPoint joinPoint, Object result) {
+        System.out.println(joinPoint.getSignature().getName() + "结果返回" + result);
+    }
+
+    @AfterThrowing(value = "pointcut()", throwing = "exception")
+    public void afterThrowing(Exception exception) {
+        System.out.println("方法出现异常");
     }
 
 }
