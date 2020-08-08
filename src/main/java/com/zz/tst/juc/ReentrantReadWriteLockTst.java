@@ -1,43 +1,52 @@
-package com.zz.tst.lock;
+package com.zz.tst.juc;
 
 import lombok.SneakyThrows;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class ReadLockTst {
+public class ReentrantReadWriteLockTst {
 
     private ReentrantReadWriteLock rwl = new ReentrantReadWriteLock();
 
     public static void main(String[] args)  {
-        final ReadLockTst readWriteLockTst = new ReadLockTst();
+        final ReentrantReadWriteLockTst test = new ReentrantReadWriteLockTst();
 
         new Thread(){
             @SneakyThrows
             public void run() {
-                readWriteLockTst.get(Thread.currentThread());
+                Thread.currentThread().sleep(1);
+                test.get(Thread.currentThread());
             }
         }.start();
 
         new Thread(){
             public void run() {
-                readWriteLockTst.get(Thread.currentThread());
+                test.get(Thread.currentThread());
             }
         }.start();
 
     }
 
-    @SneakyThrows
-    public void get(Thread thread) {
+    public synchronized void get(Thread thread) {
+        long start = System.currentTimeMillis();
+
+        while(System.currentTimeMillis() - start <= 1) {
+            System.out.println(thread.getName()+"正在进行读操作");
+        }
+        System.out.println(thread.getName()+"读操作完毕");
+    }
+
+    public void get2(Thread thread) {
         rwl.readLock().lock();
         try {
             long start = System.currentTimeMillis();
 
-            while(System.currentTimeMillis() - start <= 100) {
+            while(System.currentTimeMillis() - start <= 1) {
                 System.out.println(thread.getName()+"正在进行读操作");
-                thread.sleep(10);
             }
             System.out.println(thread.getName()+"读操作完毕");
         } finally {
             rwl.readLock().unlock();
         }
     }
+
 }

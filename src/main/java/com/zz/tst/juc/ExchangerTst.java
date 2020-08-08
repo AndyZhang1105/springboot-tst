@@ -28,7 +28,7 @@ public class ExchangerTst {
                     buffer.add("buffer：" + i + "--" + j);
                 }
 
-                System.out.println("生产者装满，等待与消费者交换...");
+                System.out.println("生产者装满，等待与消费者交换..." + buffer.hashCode());
                 System.out.println("生产者装满，buffer.size(): " + buffer.size());
                 try {
                     exchanger.exchange(buffer);
@@ -59,7 +59,7 @@ public class ExchangerTst {
                     e.printStackTrace();
                 }
 
-                System.out.println("消费者第" + i + "次提取");
+                System.out.println("消费者第" + i + "次提取" + buffer.hashCode());
                 System.out.println("消费者，buffer.size(): " + buffer.size());
                 for (int j = 1; j <= 3 ; j++) {
                     System.out.println("消费者 : " + buffer.get(0));

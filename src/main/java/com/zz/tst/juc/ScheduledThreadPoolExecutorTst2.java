@@ -1,10 +1,10 @@
-package com.zz.tst.thread;
+package com.zz.tst.juc;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class ScheduledThreadPoolExecutorTst {
+public class ScheduledThreadPoolExecutorTst2 {
 
     public static void main(String[] args) {
         ScheduledThreadPoolExecutor service4 = (ScheduledThreadPoolExecutor) Executors.newScheduledThreadPool(2);

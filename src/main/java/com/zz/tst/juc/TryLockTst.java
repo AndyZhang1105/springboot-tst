@@ -1,4 +1,4 @@
-package com.zz.tst.lock;
+package com.zz.tst.juc;
 
 import lombok.SneakyThrows;
 

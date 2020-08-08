@@ -1,9 +1,9 @@
-package com.zz.tst.lock;
+package com.zz.tst.juc;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ConditionTst {
+public class ConditionTst2 {
 
     public static void main(String[] args) {
 

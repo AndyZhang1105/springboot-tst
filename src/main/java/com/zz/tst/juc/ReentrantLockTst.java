@@ -1,4 +1,4 @@
-package com.zz.tst.objecttst;
+package com.zz.tst.juc;
 
 import lombok.SneakyThrows;
 
@@ -6,13 +6,13 @@ import java.util.ArrayList;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class LockTst {
+public class ReentrantLockTst {
 
     private ArrayList<Integer> arrayList = new ArrayList<Integer>();
     Lock lock = new ReentrantLock();    //注意这个地方
 
     public static void main(String[] args)  {
-        final LockTst test = new LockTst();
+        final ReentrantLockTst test = new ReentrantLockTst();
 
         new Thread() {
             @SneakyThrows

@@ -1,10 +1,10 @@
-package com.zz.tst.lock;
+package com.zz.tst.juc;
 
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class ConditionTst2 {
+public class ConditionTst3 {
 
         Lock lock = new ReentrantLock();
         Condition a = lock.newCondition();
@@ -14,7 +14,7 @@ public class ConditionTst2 {
         private int signal;
 
         public static void main(String[] args) {
-            ConditionTst2 d = new ConditionTst2();
+            ConditionTst3 d = new ConditionTst3();
             A a = new A(d);
             B b = new B(d);
             C c = new C(d);
@@ -73,9 +73,9 @@ public class ConditionTst2 {
 
 class A implements Runnable {
 
-    private ConditionTst2 demo;
+    private ConditionTst3 demo;
 
-    public A(ConditionTst2 demo) {
+    public A(ConditionTst3 demo) {
         this.demo = demo;
     }
 
@@ -95,9 +95,9 @@ class A implements Runnable {
 
 class B implements Runnable {
 
-    private ConditionTst2 demo;
+    private ConditionTst3 demo;
 
-    public B(ConditionTst2 demo) {
+    public B(ConditionTst3 demo) {
         this.demo = demo;
     }
 
@@ -117,9 +117,9 @@ class B implements Runnable {
 
 class C implements Runnable {
 
-    private ConditionTst2 demo;
+    private ConditionTst3 demo;
 
-    public C(ConditionTst2 demo) {
+    public C(ConditionTst3 demo) {
         this.demo = demo;
     }
 
